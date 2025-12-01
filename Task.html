@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptous</title>
+</head>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0b0235, #8c00ff);
+    color: #fff;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 80px;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo img {
+    width: 35px;
+    margin-right: 10px;
+}
+
+.header nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffffc7;
+}
+
+.trade-btn {
+    padding: 10px 25px;
+    background: transparent;
+    border: 2px solid #ff6a6a;
+    color: white;
+    border-radius: 20px;
+}
+
+.trade-btn:hover {
+    background: #ff6a6a;
+}
+
+.hero {
+    width: 90%;
+    margin: auto;
+    margin-top: 80px;
+    display: flex;
+    padding: 25px 80px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 45px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 16px;
+    margin: 25px 0;
+}
+
+.whitelist-btn {
+    background: #ff4c4c;
+    padding: 16px 30px;
+    border-radius: 40px;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.hero-img img {
+    width: 400px;
+}
+
+.crypto-prices {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.crypto-prices h3 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+
+thead tr {
+    border-bottom: 2px solid gray;
+    border-top: 2px solid gray;
+    line-height: 40px;
+}
+
+tbody tr {
+    border-bottom: 1px solid gray;
+    height: 80px;
+}
+
+td img {
+    width: 40px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-radius: 50px;
+}
+
+.graph {
+    width: 100px;
+    margin-right: 10px;
+}
+
+td span {
+    font-size: 12px;
+    opacity: 0.7;
+    padding-left: 5px;
+}
+
+.up {
+    color: #00ff76;
+}
+
+.down {
+    color: #ff3a3a;
+}
+
+td p{
+    color: #7d7d7d;
+    margin-left: 70px;
+    margin-top: 5px;
+    font-size: 13px;
+    
+}
+
+.platform-section {
+    width: 100%;
+    text-align: center;
+    background: white;
+    color: #000;
+    padding: 80px 0;
+    margin-top: 80px;
+}
+
+.platform-section h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 60px;
+    color: #000;
+}
+
+.platform-box {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    width: 80%;
+    margin: auto;
+}
+
+.trust-card {
+    width: 280px;
+    text-align: left;
+}
+
+.trust-card img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.trust-card h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.trust-card p {
+    margin: 6px 0;
+    font-size: 13px;
+    font-weight: bold;
+    color: #3a3a3a;
+}
+
+.appstore-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 100px;
+    background: #1b0050;
+    color: white;
+}
+
+.appstore-text {
+    width: 45%;
+}
+
+.appstore-text h1 {
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 45px;
+}
+
+.appstore-text p {
+    margin: 25px 0;
+    font-size: 17px;
+    color: #d9d9d9;
+    line-height: 26px;
+}
+
+.store-btns img {
+    width: 140px;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.store-btns img:hover {
+    transform: scale(1.08);
+}
+
+.appstore-images {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.phone {
+    width: 380px;
+    filter: drop-shadow(0px 0px 30px #000);
+    position: absolute;
+    transform: rotate(-5deg);
+}
+
+.blog-section {
+    background: #f9eefb;
+    text-align: center;
+    padding: 80px 100px;
+}
+
+.blog-section h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: #000;
+}
+
+.blog-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.blog-card {
+    width: 32%;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 18px 20px;
+    text-align: left;
+}
+
+.blog-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #000 ;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.blog-content p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.blog-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #444;
+}
+
+.newsletter-section {
+    background-color: #0d0041; 
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-section h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.newsletter-section p {
+    font-size: 18px;
+    color: #ccccff;
+    margin-bottom: 40px;
+}
+
+.newsletter-box {
+    width: 35%;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 50px;
+    border: 2px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.newsletter-box input {
+    padding: 18px;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.newsletter-box input::placeholder {
+    color: #d2d2ff;
+}
+
+.newsletter-box button {
+    background: linear-gradient(90deg, #ff7c7c, #ff6161);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.newsletter-box button:hover {
+    transform: scale(1.07);
+}
+
+.footer-section {
+    background: linear-gradient(90deg, #2d0066, #350152);
+    padding: 60px 10%;
+    color: #fff;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-col a {
+    display: block;
+    color: #d3caff;
+    font-size: 15px;
+    margin: 8px 0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-col a:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+.footer-line {
+    margin: 40px;
+    
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom p {
+    color: #b8b3d1;
+    font-size: 14px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    color: #000;
+    
+    
+}
+.social-icons a img {
+    width: 25px;  
+    height: 25px;
+}
+
+
+</style>
+
+<body>
+
+    <section class="header">
+        <div class="logo">
+            <img src="C:\Users\venka\.vscode\Day14\logo.png" alt="logo">
+            <h2>Cryptous</h2>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Company</a>
+            <a href="#">About</a>
+            <a href="#">Pricing</a>
+            <a href="#">Team</a>
+            <a href="#">Contact</a>
+            <a href="#">Blog</a>
+        </nav>
+        <button class="trade-btn">Trade Now</button>
+    </section>
+
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Make better businees<br>with Cryptocurrency</h1>
+            <p>We offers users a fully operational long-term rental platform.<br>
+                It plans to leverages blockchain technology.
+            </p>
+            <button class="whitelist-btn">Get Whitelisted</button>
+        </div>
+        <div class="hero-img">
+            <img src="C:\Users\venka\.vscode\Day14\illu.png" alt="crypto">
+        </div>
+    </section>
+
+    <section class="crypto-prices">
+        <h3>Today's Cryptocurrency Prices</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#&#9650;</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>24h %</th>
+                    <th>7d %</th>
+                    <th>Market Cap</th>
+                    <th>Volume(24h)</th>
+                    <th>Last 7 Days</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>&#9734; 1</td>
+                    <td><img src="C:\Users\venka\.vscode\Day14\bit.png">Bitcoin <span>BTC</span></td>
+                    <td>$55,206.61</td>
+                    <td class="up">&#9650; 0.92%</td>
+                    <td class="up">&#9650; 15.86%</td>
+                    <td>$1,046,899,935,348</td>
+                    <td>$1,046,899,935,348<br>
+                        <p>653,452 BTC</p>
+                    </td>
+                    <td><img src="C:\Users\venka\.vscode\Day14\up1.png" class="graph">&#x22EE;</td>
+                </tr>
+
+                <tr>
+                    <td>&#9734; 2</td>
+                    <td><img src="C:\Users\venka\.vscode\Day14\rth.png"> Ethereum <span>ETH</span></td>
+                    <td>$55,206.61</td>
+                    <td class="down">&#9660; 0.92%</td>
+                    <td class="up">&#9650; 15.86%</td>
+                    <td>$1,046,899,935,348</td>
+                    <td>$1,046,899,935,348<br>
+                        <p>653,452 BTC</p>
+                    </td>
+                    <td><img src="C:\Users\venka\.vscode\Day14\up1 - Copy.png" class="graph">&#x22EE;</td>
+                </tr>
+
+                <tr>
+                    <td>&#9734; 3</td>
+                    <td><img src="C:\Users\venka\.vscode\Day14\car.png"> Cardano <span>ADA</span></td>
+                    <td>$55,206.61</td>
+                    <td class="down">&#9660; 0.92%</td>
+                    <td class="down">&#9660; 15.86%</td>
+                    <td>$1,046,899,935,348</td>
+                    <td>$1,046,899,935,348<br>
+                        <p>653,452 BTC</p>
+                    </td>
+                    <td><img src="C:\Users\venka\.vscode\Day14\up2-removebg-preview.png" class="graph">&#x22EE;</td>
+                </tr>
+
+                <tr>
+                    <td>&#9734; 4</td>
+                    <td><img src="C:\Users\venka\.vscode\Day14\trt.png"> Cardano <span>ADA</span></td>
+                    <td>$55,206.61</td>
+                    <td class="up">&#9650; 0.92%</td>
+                    <td class="up">&#9650; 15.86%</td>
+                    <td>$1,046,899,935,348</td>
+                    <td>$1,046,899,935,348<br>
+                        <p>653,452 BTC</p>
+                    </td>
+                    <td><img src="C:\Users\venka\.vscode\Day14\up1 - Copy (3).png" class="graph">&#x22EE;</td>
+                </tr>
+
+                <tr>
+                    <td>&#9734; 5</td>
+                    <td><img src="C:\Users\venka\.vscode\Day14\ava.png"> Cardano <span>ADA</span></td>
+                    <td>$55,206.61</td>
+                    <td class="down">&#9660; 0.92%</td>
+                    <td class="down">&#9660; 15.86%</td>
+                    <td>$1,046,899,935,348</td>
+                    <td>$1,046,899,935,348<br>
+                        <p>653,452 BTC</p>
+                    </td>
+                    <td><img src="C:\Users\venka\.vscode\Day14\up2-removebg-preview - Copy.png" class="graph">&#x22EE;</td>
+                </tr>
+
+                <tr>
+                    <td>&#9734; 6</td>
+                    <td><img src="C:\Users\venka\.vscode\Day14\download.png"> Cardano <span>ADA</span></td>
+                    <td>$55,206.61</td>
+                    <td class="up">&#9650; 0.92%</td>
+                    <td class="up">&#9650; 15.86%</td>
+                    <td>$1,046,899,935,348</td>
+                    <td>$1,046,899,935,348<br>
+                        <p>653,452 BTC</p>
+                    </td>
+                    <td><img src="C:\Users\venka\.vscode\Day14\up1 - Copy (2).png" class="graph">&#x22EE;</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </section>
+
+
+    
+
+    <section class="platform-section">
+        <h2>The most trusted cryptocurrency platform</h2>
+        <div class="platform-box">
+
+            <div class="trust-card">
+                <img src="C:\Users\venka\.vscode\Day14\Screenshot 2025-08-22 141423.png" alt="">
+                <h3>Ease of Trading</h3>
+                <p>Intuitive interface</p>
+                <p>Instant deposit options</p>
+                <p>Cash out directly to your bank account</p>
+            </div>
+
+            <div class="trust-card">
+                <img src="C:\Users\venka\.vscode\Day14\Screenshot 2025-08-22 141433.png" alt="">
+                <h3>Institutional-grade Security</h3>
+                <p>98% of assets stored safely offline</p>
+                <p>Highly encrypted personal data</p>
+                <p>Whitelisting and transaction confirmations</p>
+            </div>
+
+            <div class="trust-card">
+                <img src="C:\Users\venka\.vscode\Day14\Screenshot 2025-08-22 141442.png" alt="">
+                <h3>Proven Reliability</h3>
+                <p>Exchanging bitcoin since 2011</p>
+                <p>Industry-leading uptime</p>
+                <p>24/7 dedicated support</p>
+            </div>
+
+        </div>
+    </section>
+
+    
+
+    <section class="appstore-section">
+        <div class="appstore-text">
+            <h1>Try the future, today.<br>Download Crypto</h1>
+            <p>
+                Stay connected to the market with our mobile app. Featuring
+                advanced order types and analytical tools for experienced
+                traders, as well as a simple buy & sell interface for those just
+                getting started.
+            </p>
+
+            <div class="store-btns">
+                <img src="C:\Users\venka\.vscode\Day14\app.png" alt="App Store">
+                <img src="C:\Users\venka\.vscode\Day14\gplay.png" alt="Google Play">
+            </div>
+        </div>
+
+        <div class="appstore-images">
+            <img src="C:\Users\venka\.vscode\Day14\phone.png" class="phone">
+        </div>
+    </section>
+
+    
+
+    <section class="blog-section">
+        <h2>Learn to thrive</h2>
+
+        <div class="blog-cards">
+
+            
+            <div class="blog-card">
+                <img src="C:\Users\venka\.vscode\Day14\1.png" alt="Crypto News">
+                <div class="blog-content">
+                    <h3>New Leveraged Pairs Added to Margin Trading on the Crypto.com Exchange</h3>
+                    <p>We urge everyone adopt good cybersecurity habits, and to have unique passwords
+                        on every site they use…</p>
+                    <div class="blog-info">
+                        <span>By: Jennia Peris</span>
+                        <span>&#128197; 15/07/2021</span>
+                        <span>&#9200; 5 Min to read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="blog-card">
+                <img src="C:\Users\venka\.vscode\Day14\2.png" alt="Trading Update">
+                <div class="blog-content">
+                    <h3>New Leveraged Pairs Added to Margin Trading on the Crypto.com Exchange</h3>
+                    <p>We urge everyone adopt good cybersecurity habits, and to have unique passwords
+                        on every site they use…</p>
+                    <div class="blog-info">
+                        <span>By: Jennia Peris</span>
+                        <span>&#128197; 15/07/2021</span>
+                        <span>&#9200; 5 Min to read</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="blog-card">
+                <img src="C:\Users\venka\.vscode\Day14\3.png" alt="Bitcoin Future">
+                <div class="blog-content">
+                    <h3>New Leveraged Pairs Added to Margin Trading on the Crypto.com Exchange</h3>
+                    <p>We urge everyone adopt good cybersecurity habits, and to have unique passwords
+                        on every site they use…</p>
+                    <div class="blog-info">
+                        <span>By: Jennia Peris</span>
+                        <span>&#128197; 15/07/2021</span>
+                        <span>&#9200; 5 Min to read</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <h2>Never miss a drop</h2>
+            <p>Subscribe for the latest news, drops & collectibles</p>
+
+            <div class="newsletter-box">
+                <input type="email" placeholder="Enter your email address">
+                <button type="submit">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <footer class="footer-section">
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About us</a>
+                <a href="#">Terms of use</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Disclaimer</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Businesses</h4>
+                <a href="#">Prime</a>
+                <a href="#">Custody</a>
+                <a href="#">Asset Hub</a>
+                <a href="#">Commerce</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Exchange</h4>
+                <a href="#">Exchange Home</a>
+                <a href="#">Margin Trading</a>
+                <a href="#">Derivatives Trading</a>
+                <a href="#">Trading Arena</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Blockchain</h4>
+                <a href="#">Chain Explorer</a>
+                <a href="#">The Syndicate</a>
+                <a href="#">Security</a>
+                <a href="#">Cryptous Credit</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="#">Prices</a>
+                <a href="#">Site Widgets</a>
+                <a href="#">Tax</a>
+                <a href="#">Blog</a>
+                <a href="#">Research</a>
+            </div>
+
+        </div>
+
+        <hr class="footer-line">
+
+        <div class="footer-bottom">
+            <p>Copyright 2021, Cryptous</p>
+
+            <div class="social-icons">
+                <a href="https://www.facebook.com/" target="_blank"><img src="C:\Users\venka\.vscode\Day14\240_osSR.jpg" alt="facebook"></a>
+                <a href="https://x.com/home" target="_blank"><img src="C:\Users\venka\.vscode\Day14\twitter_PNG20.png" alt="twitter"></a>
+                <a href="https://www.linkedin.com/feed/" target="_blank"><img src="C:\Users\venka\.vscode\Day14\sm_5aeedf9306a0c.jpg" alt="instagram"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img src="C:\Users\venka\.vscode\Day14\Insts.jpg" alt="linkedin"></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
