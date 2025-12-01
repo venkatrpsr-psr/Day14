@@ -92,6 +92,41 @@ body {
     width: 400px;
 }
 
+.scroll-mouse {
+    position: absolute;
+    bottom: -40px;       
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    z-index: 50;
+}
+
+.mouse-shape {
+    width: 18px;
+    height: 50px;
+    border: 1px solid #ffffff;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.mouse-wheel {
+    width: 6px;
+    height: 12px;
+    background: #fff;
+    border-radius: 3px;
+    margin-top: 10px;
+    animation: wheel 1.5s ease-in-out infinite;
+}
+
+@keyframes wheel {
+    0% { opacity: 1; transform: translateY(0); }
+    50% { opacity: 0.2; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+
 .crypto-prices {
     margin-top: 10px;
     text-align: center;
@@ -403,14 +438,8 @@ td p{
     text-decoration: none;
     transition: 0.3s;
 }
-
-.footer-col a:hover {
-    color: #ffffff;
-    transform: translateX(5px);
-}
-
 .footer-line {
-    margin: auto;
+    margin: 20px;
     
 }
 
@@ -427,18 +456,124 @@ td p{
 
 .social-icons {
     display: flex;
-    justify-content: center; 
-    align-items: center;
     gap: 15px;
-    margin-top: 20px;
-    color: #000;
-    
-    
 }
-.social-icons a img {
-    width: 25px;  
-    height: 25px;
+
+.icon {
+    width: 38px;
+    height: 38px;
+    border: 1px solid #a48cd1;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
 }
+
+.icon.tw {
+    background: #ff5b5b;
+    border-color: #ff5b5b;
+}
+
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        text-align: center;
+    }
+    .header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .header nav a {
+        font-size: 0.8rem;
+    }
+    .trade-btn {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    .hero-text h1 {
+        font-size: 28px;
+    }
+    .hero-img img {
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.6rem;
+    }
+    td img {
+        width: 25px;
+    }
+    .graph {
+        width: 60px;
+    }
+    .platform-box {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .trust-card {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .appstore-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
+    .appstore-text, .appstore-images {
+        width: 100%;
+    }
+    .phone {
+        width: 250px;
+        position: relative;
+        margin-top: 20px;
+        transform: none;
+    }
+
+    .blog-cards {
+        flex-direction: column;
+    }
+    .blog-card {
+        width: 100%;
+    }
+    .newsletter-box {
+        width: 90%;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    .newsletter-box button {
+        width: 100%;
+    }
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
 
 
 </style>
@@ -474,8 +609,20 @@ td p{
         <div class="hero-img">
             <img src="C:\Users\venka\.vscode\Day14\illu.png" alt="crypto">
         </div>
-    </section>
+        </section>
+        <div class="scroll-mouse" onclick="scrollNext()">
+    <div class="mouse-shape">
+        <div class="mouse-wheel"></div>
+    </div>
+</div>
 
+       <svg viewBox="0 0 1400 120" preserveAspectRatio="none" style="display:block;width:100%;height:50px;">
+          <path d="M0,24 C180,92 400,92 700,64 C1000,36 1220,12 1400,48 L1400 120 L0 120 Z"
+                fill="#1a0636"></path>
+        </svg>
+
+        <main>
+        
     <section class="crypto-prices">
         <h3>Today's Cryptocurrency Prices</h3> <br><br>
 
@@ -685,8 +832,6 @@ td p{
         </div>
         
     </section>
-
-
     
     <section class="newsletter-section">
         <div class="newsletter-content">
@@ -699,8 +844,7 @@ td p{
             </div>
         </div>
     </section>
-
-
+        </main>
     
     <footer class="footer-section">
         <div class="footer-container">
@@ -751,17 +895,16 @@ td p{
         <hr class="footer-line">
 
         <div class="footer-bottom">
-            <p>Copyright 2021, Cryptous</p>
+        <p>Copyright 2021, Cryptous</p>
 
-            <div class="social-icons">
-                <a href="https://www.facebook.com/" target="_blank"><img src="C:\Users\venka\.vscode\Day14\240_osSR.jpg" alt="facebook"></a>
-                <a href="https://x.com/home" target="_blank"><img src="C:\Users\venka\.vscode\Day14\twitter_PNG20.png" alt="twitter"></a>
-                <a href="https://www.linkedin.com/feed/" target="_blank"><img src="C:\Users\venka\.vscode\Day14\sm_5aeedf9306a0c.jpg" alt="instagram"></a>
-                <a href="https://www.instagram.com/" target="_blank"><img src="C:\Users\venka\.vscode\Day14\Insts.jpg" alt="linkedin"></a>
-            </div>
+        <div class="social-icons">
+            <a href="#" class="icon fb">f</a>
+            <a href="#" class="icon tw">t</a>
+            <a href="#" class="icon ln">in</a>
+            <a href="#" class="icon ig">◎</a>
         </div>
+    </div>
     </footer>
-
+</section>
 </body>
-
 </html>
